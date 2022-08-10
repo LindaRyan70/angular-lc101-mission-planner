@@ -1,14 +1,20 @@
 <div class="displayBox">
     <h3>Candidates</h3>
     <ul>
-        <li *ngFor="let member of candidates">{{member.name}}</li>
+        <!-- It is not necessary to include "this." in the crew.includes <li> line below, but works both ways. -->
+        <li [class.selected]="crew.includes(member)" (click)="addCrewMember(member)" *ngFor="let member of candidates">{{member.name}}</li>
     </ul>
 </div>
 <hr>
 <div class="displayBox">
-    <h3>Crew <!-- Add a span tag here to display 'Full' when the crew reaches 3. --></h3>
+        <!-- It is not necessary to include "this." in the crew.length <span> line below, but works both ways. -->
+    <h3>Crew <span *ngIf="crew.length === 3">Full</span><!-- Add a span tag here to display 'Full' when the crew reaches 3. --></h3>
     <ol>
-        <li *ngFor="let astronaut of crew">{{astronaut.name}}</li>
+        <!-- Had to create a new variable chosenAstronaut (could have been any word) and assign it the astronaut value in order to reference the 
+        specific astronaut the mouseover is highlighting within the astronauts in the crew[array]. Then I used THAT variable to 
+        reference the .photo property found in the crew.ts file in the candidates {object}. -->
+        <li (mouseover)="chosenAstronaut = astronaut" (mouseout)="chosenAstronaut = !astronaut" *ngFor="let astronaut of crew">{{astronaut.name}}</li>
     </ol>
     <!-- Add an img tag here to display astronaut photos. -->
+    <img *ngIf="chosenAstronaut" [src]="chosenAstronaut.photo">    
 </div>

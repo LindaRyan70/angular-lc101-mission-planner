@@ -26,4 +26,23 @@ export class CrewComponent implements OnInit {
 
   // Code the 'addCrewMember' function here:
 
+  /* Book doesn't point out that there already exists an inCrew variable above we should
+  use for our funtion below that is a boolean set to false. */
+
+  addCrewMember(candidate: object) {
+    
+    if (this.crew.includes(candidate)) {
+      this.inCrew = true;
+    } else {
+      this.inCrew = false;
+    }
+
+    //  !this.inCrew is saying it is true that the the selected candidate is not already in the the crew.
+    if (this.crew.length < 3 && !this.inCrew) {
+      this.crew.push(candidate);
+    } else if (this.inCrew) {
+      let index = this.crew.indexOf(candidate);
+      this.crew.splice(index, 1);
+    }
+  }
 }
