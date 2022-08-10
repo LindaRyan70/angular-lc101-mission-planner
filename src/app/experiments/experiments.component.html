@@ -1,7 +1,18 @@
 <div class="displayBox">
-    <h3>Possible Experiments</h3>
-    <ul>
-      <li *ngFor="let experiment of experiments">{{experiment}}</li>
-    </ul>
+  <h3>Possible Experiments</h3>
+  <ul>
+    <!-- Bonus Mission 4: Modified line below to have a click event to add exp to a list and change color. 
+    Also had to add and id selector so only this <li> would have a cursor hand when hovering, the list at bottom
+    has no click events. -->
+    <li id="onlyThisList" [class.selected]="selectedExp.includes(experiment)" (click)="addExperiment(experiment)" *ngFor="let experiment of experiments">{{experiment}}</li>
+  </ul>
 </div>
 <hr>
+
+<!-- Bonus Misson 4: Added this code to allow experiments to be selected and added/removed from a list. -->
+<div class="displayBox">
+  <h3>Experiments<span *ngIf="selectedExp.length === 3">: Max of 3 Allowed</span></h3>
+  <ol>
+    <li *ngFor="let selected of selectedExp">{{selected}}</li>
+  </ol>
+</div>

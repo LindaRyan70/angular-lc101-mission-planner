@@ -1,8 +1,23 @@
 .displayBox {
     height: 275px;
     width: auto;
+    /* Bonus Mission 1: Added margin due to styling added at bottom of this page.  */
+    margin: 10px;
 }
 
 h3 {
     text-align: center;
+    /* Bonus Mission 4: Added underline to headings. */
+    text-decoration: underline;
+}
+
+/* Bonus Mission 4: Added pointer to click cursor and added color to the experiments selected. */
+
+#onlyThisList {
+    
+    cursor: pointer;
+}
+
+.selected {
+    color:blue;
 }

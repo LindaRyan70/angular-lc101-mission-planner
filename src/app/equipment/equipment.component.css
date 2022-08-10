@@ -1,6 +1,8 @@
 .displayBox {
     height: 275px;
     width: auto;
+    /* Bonus Mission 1: Added margin due to styling added at bottom of this page.  */
+    margin: 10px;
 }
 
 button {
@@ -10,6 +12,8 @@ button {
 
 h3 {
     text-align: center;
+    /* Bonus Mission 4: Added underline to headings. */
+    text-decoration: underline;
 }
 
 /* Add an 'active' class to style the background of the 'Add to Cargo Hold' buttons. */

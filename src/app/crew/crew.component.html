@@ -16,5 +16,12 @@
         <li (mouseover)="chosenAstronaut = astronaut" (mouseout)="chosenAstronaut = !astronaut" *ngFor="let astronaut of crew">{{astronaut.name}}</li>
     </ol>
     <!-- Add an img tag here to display astronaut photos. -->
-    <img *ngIf="chosenAstronaut" [src]="chosenAstronaut.photo">    
+    <img *ngIf="chosenAstronaut" [src]="chosenAstronaut.photo"> 
+    
+    <!-- Bonus Mission 5: Added additional info to array [gender, color, pet] and added <ul> with <li>'s' to display on .html. -->
+    <ul *ngIf="chosenAstronaut">
+        <li>Gender: {{chosenAstronaut.gender}}</li>
+        <li>Favorite Color: {{chosenAstronaut.color}}</li>
+        <li>Pet: {{chosenAstronaut.pet}}</li>
+    </ul>   
 </div>

@@ -17,10 +17,18 @@
     <h3>Cargo Hold: {{cargoHold.length}}/{{maxItems}} Spots Filled</h3>
     <ol>
         <li *ngFor="let equipment of cargoHold">{{equipment.name}}</li>
+        
+        <!-- Bonus Mission 3: The <button> lines below were working code to try to allow items to be removed from cargoHold. 
+        but I cannot figure out how to update the accompanying readouts for Mass in Hold and Mass Budget Remaining and 
+        to reactivate the item's Add to Cargo Hold button. So commented off to turn in and may work on later. -->
+        <!-- <button (click)="remove(equipment); cargoMass=cargoMass-equipment.mass; nearCapacity=!nearCapacity">Remove</button></li> -->
+        <!-- <button (click)="remove(equipment)">Remove</button> -->
+
     </ol>
     <p>Mass in Hold: {{cargoMass}} kg</p>
     <p [class.nearMaxMass]="nearCapacity">Mass Budget Remaining: {{maximumAllowedMass - cargoMass}} kg</p>
     <!-- Add the "Empty Hold" button here. -->
-    <button (click)="cargoHold=[]; cargoMass=0; nearCapacity=!nearCapacity">Empty Hold</button>
+    <!-- nearCapacity has to be reset to = false NOT = !nearCapacity because otherwise the red styling takes 2 clicks to turn off. -->
+    <button (click)="cargoHold=[]; cargoMass=0; nearCapacity=false">Empty Hold</button>
 </div>
 

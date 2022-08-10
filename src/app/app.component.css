@@ -1,5 +1,18 @@
 .box {
     display: flex;
-    padding: 10px;
+    padding: 20px;
     justify-content: space-evenly;
+    margin: 10px;
+}
+
+/* Bonus Mission 1: Adding some web page styling below. */
+
+.crew {
+    background: palegoldenrod;
+}
+.equipment {
+    background: palegreen;
+}
+.experiments {
+    background:palegoldenrod;
 }
